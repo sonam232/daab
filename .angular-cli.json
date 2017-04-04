@@ -19,7 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "app/css/main.css",
+        "app/css/owl.carousel.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
