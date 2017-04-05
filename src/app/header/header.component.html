@@ -1,15 +1,29 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a style="font-size:40px" class="navbar-brand" href="#myPage">daab</a> </div>
+      <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#myNavbar"> 
+        <span class="icon-bar"></span>
+         <span class="icon-bar"></span> 
+         <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+      <a style="font-size:40px" class="navbar-brand" href="#myPage">daab</a> 
+    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage" class="hidden-xs">Home</a> <a href="#myPage" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Home</a> </li>
-        <li><a href="" class="hidden-xs">Regrister Your Businesses</a> <a href="" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Regrister Your Businesses</a> </li>
-        <li><a href="" class="hidden-xs">User Sign Up</a> <a href="" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">User Sign Up</a> </li>
-        <li><a href="" class="hidden-xs">Log In</a> <a href="" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Log In</a> </li>
-        <li><a href="#About" class="hidden-xs">About Us</a> <a href="#About" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">About Us</a> </li>
+        <li>
+           <a routerLink="/home" routerLinkActive="active">Home</a>
+           </li>
+        <li>
+          <a routerLink ="/register" routerLinkActive="active">Register</a>
+           </li>
+        <li>
+           <a  routerLink="/log-in" routerLinkActive="active">Log In</a>
+           </li>
+        <li>
+          <a routerLink="about-us" routerLinkActive="active">About Us</a>
+          
+        </li>
       </ul>
     </div>
   </div>

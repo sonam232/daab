@@ -19,6 +19,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+      "app/css/css_002.css",
+      "app/css/css.css",
+      "app/css/style.css",
+      "app/css/common.css",
+      "app/css/slicknav.css",
+      "app/css/owl.css",
+      "app/css/font-awesome.css",
+      "app/css/bootstrap.css",
+      "app/css/responsive.css",
         "styles.css",
         "app/css/main.css",
         "app/css/owl.carousel.css"
