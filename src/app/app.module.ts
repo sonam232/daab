@@ -10,8 +10,24 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { LogInComponent } from './log-in/log-in.component';
+import { LoginComponent } from './log-in/log-in.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AlertComponent } from './_directives/alert.component';
+// used to create fake backend
+import { fakeBackendProvider } from './_helpers/index';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
+
+
+import { AuthGuard } from './_guards/index';
+import { AlertService, AuthenticationService, UserService } from './_services/index';
+
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -20,9 +36,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
     DashboardComponent,
     HomeComponent,
     RegisterComponent,
-    
-    LogInComponent,
-    AboutUsComponent
+
+    LoginComponent,
+    AboutUsComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -39,19 +56,34 @@ import { AboutUsComponent } from './about-us/about-us.component';
         component: RegisterComponent,
       },
 
-      
+
 
       {
         path: 'log-in',
-        component: LogInComponent,
+        component: LoginComponent,
       },
       {
         path: 'about-us',
         component: AboutUsComponent,
       },
+       {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
           ]),
   ],
-  providers: [],
+ providers: [
+        AuthGuard,
+        AlertService,
+        AuthenticationService,
+        UserService,
+
+        // providers used to create fake backend
+        fakeBackendProvider,
+        MockBackend,
+        BaseRequestOptions
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

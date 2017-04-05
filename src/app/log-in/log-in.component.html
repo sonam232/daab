@@ -1,77 +1,22 @@
-<!DOCTYPE html>
-<!-- <!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<!-- /*<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba no-hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths gr__daabglobal_com" style="">[endif]<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>daab</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     Place favicon.ico and apple-touch-icon.png in the root directory 
-    <link rel="shortcut icon" type="image/png" href="http://daabglobal.com/images/favicon.png">
-
-    <link href="login_files/css_002.css" rel="stylesheet" type="text/css">
-    <link href="login_files/css.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" type="text/css" href="login_files/style.css">
-    <link rel="stylesheet" type="text/css" href="login_files/common.css">
-    <link rel="stylesheet" href="login_files/slicknav.css">
-    <link rel="stylesheet" href="login_files/owl.css">
-    <link rel="stylesheet" href="login_files/font-awesome.css">
-    <link rel="stylesheet" href="login_files/bootstrap.css">
-    <link rel="stylesheet" href="login_files/main.css">
-    <link rel="stylesheet" href="login_files/responsive.css">
-    <script src="login_files/modernizr-2.js"></script>
-</head> */ -->
-<body data-gr-c-s-loaded="true">
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-
-<!-- Add your site or application content here -->
-
-<!-- header Start
-================================================= -->
-
-                    <!-- <div id="dic_bubble" class="selection_bubble fontSize13 noSelect" style="z-index: 9999; border: 1px solid rgb(74, 174, 222); visibility: hidden;"></div><nav class="navbar navbar-default my_nav">
-                        <div class="container">
-                        <div class="navbar-header top_logo">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a style="font-size:40px" class="navbar-brand logo" href="http://daabglobal.com/"><img src="login_files/logo_web.png"></a>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling
-                        <div class="collapse navbar-collapse top_right_nav navbar-right" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                                                    <li> <a href="http://daabglobal.com/login">Log In</a></li>
-                                    <li> <a href="http://daabglobal.com/signup">Sign Up</a></li>
-                                                            </ul>
-                        </div><!-- /.navbar-collapse
-                        <!-- </div> /.container-fluid -->
-                       <!-- </div>
-                    </nav>-->
-<!-- #heder close -->
-    <div class="container" xmlns="//www.w3.org/1999/html">
+   <div class="container" xmlns="//www.w3.org/1999/html">
         <div class="row">
-            <form id="login" method="POST" action="http://daabglobal.com/login">
+            <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidateid="login" method="POST" action="http://daabglobal.com/login">
                 <section class="col-md-6 col-md-offset-3">
                     <div class="signin_bg_comman">
                         <h2 class="form_title text-center">LOG IN</h2>
 
-
-                                                <input name="_token" value="TWVup62bJOVndGxXY2PMzv8RZs7D3mIDbudzBZ9a" type="hidden">
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+     <span class="glyphicon glyphicon-envelope"></span>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+                <!-- <input name="_token" type="hidden">
                         <div class="form-group">
                             <span class="glyphicon glyphicon-envelope"></span>
                             <input class="form-control" name="user[email]" placeholder="Email" type="email">
@@ -79,7 +24,7 @@
                         <div class="form-group">
                             <span class=" glyphicon glyphicon-lock"></span>
                             <input class="form-control" name="user[password]" id="password" placeholder="Password" type="password">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
@@ -98,24 +43,24 @@
                             </div>
                         </div>
                     <!-- <a class="forgot_password" href="http://daabglobal.com/forgot-password">FORGOT YOUR PASSWORD?</a> -->
-            
+
             <div class="row text-center signin_or_fb">
                 - OR -
             </div>
 
             <div class="text-center signin_or_fb">
                 <a href="http://daabglobal.com/facebook-login" class="facebook">
-                    <img src="login_files/facebook_login.png" class="fb_login" alt="Login with Facebook">
+                    <img src="../assets/facebook_login.png" class="fb_login" alt="Login with Facebook">
                     <span>Sign in with facebook</span>
                 </a>
             </div>
         </div>
         </section></form>
-        
+
     </div>
     </div>
     <!-- jQuery -->
-    <!-- Bootstrap JavaScript -->
+    <!-- Bootstrap JavaScript
     <script src="login_files/jquery.js"></script>
     <script src="login_files/cdn.js"></script>
 
