@@ -8,7 +8,7 @@ export class AuthenticationService {
   constructor(private http: Http) {
   }
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -18,8 +18,8 @@ export class AuthenticationService {
     console.log('OPTIONS :' + JSON.stringify(options));
     return this.http.post('http://192.168.1.16/api/login', JSON.stringify({
       user: {
-        email: 'email',
-        password: 'password'
+        email: email,
+        password: password
       }
     }), headers)
       .map((response: Response) => {

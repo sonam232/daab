@@ -1,4 +1,4 @@
-﻿﻿import {Injectable} from '@angular/core';
+﻿import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
 
 import {User} from '../_models/index';
@@ -16,21 +16,19 @@ export class UserService {
     return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
   }
 
-  create(user: User) {
+  create(user) {
 
     const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({headers: headers});
     console.log('options :', JSON.stringify(options));
+console.log('USER :' + JSON.stringify(user));
     return this.http.post('http://192.168.1.16/api/signup', {
       'user': {
-        'email': 'sonam1dd@headerlabs.com',
+        'email': 'sonam144dd@headerlabs.com',
         'password': 'sona5124899',
         'password_confirmation': 'sona5124899',
-        'first_name': 'sonam',
-        'last_name': 'chaudhary',
-        'mobile': 8295510648,
         'user_type': 'vendor'
       }
     }, options).map((response: Response) => response.json());
