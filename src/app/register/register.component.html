@@ -10,7 +10,26 @@
                             </h2>
                             <h4 class="text-center form_title three_steps">with three easy steps</h4>
                             <h4 class="text-center form_title three_steps">You can only register as Business User</h4>
-                                                        <form >
+                             <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+            <span class="glyphicon glyphicon-envelope"></span>                   
+            <input type="email"  placeholder="Email Address" class="form-control" name="user[email]"  [(ngModel)]="model.email" #email="ngModel" required />
+            <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+         <span class=" glyphicon glyphicon-lock"></span>
+            <input type="password" placeholder="Password" name="user[password]" class="form-control" id="password" [(ngModel)]="model.password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+         <span class=" glyphicon glyphicon-lock"></span>
+            <input type="password" class="form-control" id="password_confirmation" placeholder="Confirm Password" name="user[password_confirmation]"[(ngModel)]="model.password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+   
+
+                                                       <!--  <form >
                                 <input name="_token" value="TWVup62bJOVndGxXY2PMzv8RZs7D3mIDbudzBZ9a" type="hidden">
                                 <input name="user[user_type]" value="vendor" type="hidden">
                                 <div class="form-group"><span class="glyphicon glyphicon-envelope"></span>
@@ -24,7 +43,7 @@
                                 <div class="form-group"><span class=" glyphicon glyphicon-lock"></span>
 
                                     <input class="form-control" id="password_confirmation" placeholder="Confirm Password" name="user[password_confirmation]" type="password">
-                                </div>
+                                </div> -->
                                 <button type="submit" class="btn btn-lg btn-block" style="background-color: rgba(92, 37, 141, 0.5); border-color: background-color: rgba(255, 255, 255, 0); color: white;">
                                     SIGN UP
                                 </button>

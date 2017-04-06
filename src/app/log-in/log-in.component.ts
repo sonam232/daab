@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
 
     login() {
     //console.log(this.model);
-    let headers = new Headers({ 'Accept': 'application/json','Content-Type':'application/x-www-form-urlencoded','Access-Control-Allow-Origin':'*' });
+
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);

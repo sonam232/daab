@@ -18,7 +18,7 @@ export class AuthenticationService {
     console.log('OPTIONS :' + JSON.stringify(options));
     return this.http.post('http://192.168.1.16/api/login', JSON.stringify({
       user: {
-        email: 'username',
+        email: 'email',
         password: 'password'
       }
     }), headers)
