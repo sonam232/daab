@@ -11,17 +11,17 @@ export class AuthenticationService {
   login(email: string, password: string) {
     const headers = new Headers();
     headers.append('Accept', 'application/json');
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Content-Type', 'application/json');
+    // headers.append('Access-Control-Allow-Origin', '*');
     const options = new RequestOptions({headers: headers});
 
-    console.log('OPTIONS :' + JSON.stringify(options));
-    return this.http.post('http://192.168.1.16/api/login', JSON.stringify({
+    // console.log('OPTIONS :' + JSON.stringify(options));
+    return this.http.post('http://192.168.1.16/api/login', ({
       user: {
         email: email,
         password: password
       }
-    }), headers)
+    }), options)
       .map((response: Response) => {
         console.log('demo:' + response);
         // login successful if there's a jwt token in the response

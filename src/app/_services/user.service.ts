@@ -16,7 +16,7 @@ export class UserService {
     return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
   }
 
-  create(user) {
+  create(user: User) {
 
     const headers = new Headers();
     headers.append('Accept', 'application/json');
@@ -26,17 +26,23 @@ export class UserService {
 console.log('USER :' + JSON.stringify(user));
     return this.http.post('http://192.168.1.16/api/signup', {
       'user': {
+        email: user.email,
+     password: user.password,
+     password_confirmation: user.password_confirmation,
+      user_type: 'vendor'
+      }
+      /*'user': {
         'email': 'sonam144dd@headerlabs.com',
         'password': 'sona5124899',
         'password_confirmation': 'sona5124899',
         'user_type': 'vendor'
-      }
+      }*/
     }, options).map((response: Response) => response.json());
   }
 
-  update(user: User) {
+  /*update(user: User) {
     return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
-  }
+  }*/
 
   delete(id: number) {
     return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());

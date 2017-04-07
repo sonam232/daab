@@ -12,7 +12,7 @@
                             <h4 class="text-center form_title three_steps">You can only register as Business User</h4>
                              <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-            <span class="glyphicon glyphicon-envelope"></span>                   
+            <span class="glyphicon glyphicon-envelope"></span>
             <input type="email"  placeholder="Email Address" class="form-control" name="user[email]"  [(ngModel)]="model.email" #email="ngModel" required />
             <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
         </div>
@@ -24,10 +24,10 @@
 
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
          <span class=" glyphicon glyphicon-lock"></span>
-            <input type="password" class="form-control" id="password_confirmation" placeholder="Confirm Password" name="user[password_confirmation]"[(ngModel)]="model.password" #password="ngModel" required />
+            <input type="password" class="form-control" id="password_confirmation" placeholder="Confirm Password" name="user[password_confirmation]"[(ngModel)]="model.password_confirmation" #password_confirmation="ngModel" required />
             <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
         </div>
-   
+
 
                                                        <!--  <form >
                                 <input name="_token" value="TWVup62bJOVndGxXY2PMzv8RZs7D3mIDbudzBZ9a" type="hidden">
@@ -55,8 +55,8 @@
                                         <img src="../assets/facebook_login.png" class="fb_login" alt="Login with Facebook">
                                         <span>Sign up with facebook</span>
                                     </a>
-                                </div>                      
-                                
+                                </div>
+
                             </form>
                         </div>
                     </div>
