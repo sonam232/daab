@@ -5,6 +5,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
+
+  public static is_logged_in = false;
+
   constructor(private http: Http) {
   }
 
@@ -23,9 +26,11 @@ export class AuthenticationService {
       }
     }), options)
       .map((response: Response) => {
-        console.log('demo:' + response);
+        console.log('demo:' + JSON.stringify(response.json()));
         // login successful if there's a jwt token in the response
         const user = response.json();
+        localStorage.setItem('currentUser', JSON.stringify(response.json().user));
+        console.log('USER: ' + JSON.parse(localStorage.getItem('currentUser')));
         if (user && user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));

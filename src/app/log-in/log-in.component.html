@@ -1,68 +1,70 @@
-   <div class="container" xmlns="//www.w3.org/1999/html">
-        <div class="row">
-            <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidateid="login" >
-                <section class="col-md-6 col-md-offset-3">
-                    <div class="signin_bg_comman">
-                        <h2 class="form_title text-center">LOG IN</h2>
+<div class="container">
+  <div class="row">
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidateid="login">
+      <section class="col-md-6 col-md-offset-3">
+        <div class="signin_bg_comman">
+          <h2 class="form_title text-center">LOG IN</h2>
 
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-     <span class="glyphicon glyphicon-envelope"></span>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+            <span class="glyphicon glyphicon-envelope"></span>
 
-            <input type="email" class="form-control" name="user[email]" [(ngModel)]="model.email" #email="ngModel" required />
+            <input type="email" class="form-control" name="user[email]" [(ngModel)]="model.email" #email="ngModel"
+                   required/>
             <div *ngIf="f.submitted && !email.valid" class="help-block">Username is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
             <span class=" glyphicon glyphicon-lock"></span>
-            <input type="password" class="form-control" name="user[password]" [(ngModel)]="model.password" #password="ngModel" required />
+            <input type="password" class="form-control" name="user[password]" [(ngModel)]="model.password"
+                   #password="ngModel" required/>
             <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-        </div>
-                <!-- <input name="_token" type="hidden">
-                        <div class="form-group">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                            <input class="form-control" name="user[email]" placeholder="Email" type="email">
-                        </div>
-                        <div class="form-group">
-                            <span class=" glyphicon glyphicon-lock"></span>
-                            <input class="form-control" name="user[password]" id="password" placeholder="Password" type="password">
-                        </div> -->
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox"> REMEMBER ME
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block btn_primary">Login
-                                </button>
-                            </div>
-                        </div>
-                    <!-- <a class="forgot_password" href="http://daabglobal.com/forgot-password">FORGOT YOUR PASSWORD?</a> -->
-
-            <div class="row text-center signin_or_fb">
-                - OR -
+          </div>
+          <!-- <input name="_token" type="hidden">
+                  <div class="form-group">
+                      <span class="glyphicon glyphicon-envelope"></span>
+                      <input class="form-control" name="user[email]" placeholder="Email" type="email">
+                  </div>
+                  <div class="form-group">
+                      <span class=" glyphicon glyphicon-lock"></span>
+                      <input class="form-control" name="user[password]" id="password" placeholder="Password" type="password">
+                  </div> -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="checkbox">
+                  <label>
+                    <input name="remember" type="checkbox"> REMEMBER ME
+                  </label>
+                </div>
+              </div>
             </div>
-
-            <div class="text-center signin_or_fb">
-                <a href="http://daabglobal.com/facebook-login" class="facebook">
-                    <img src="../assets/facebook_login.png" class="fb_login" alt="Login with Facebook">
-                    <span>Sign in with facebook</span>
-                </a>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary btn-lg btn-block btn_primary">Login</button>
             </div>
-        </div>
-        </section></form>
+          </div>
+          <!-- <a class="forgot_password" href="http://daabglobal.com/forgot-password">FORGOT YOUR PASSWORD?</a> -->
 
-    </div>
-    </div>
-    <!-- jQuery -->
-    <!-- Bootstrap JavaScript
-    <script src="login_files/jquery.js"></script>
-    <script src="login_files/cdn.js"></script>
+          <div class="row text-center signin_or_fb">
+            - OR -
+          </div>
+
+          <div class="text-center signin_or_fb">
+            <a href="http://daabglobal.com/facebook-login" class="facebook">
+              <img src="../assets/facebook_login.png" class="fb_login" alt="Login with Facebook">
+              <span>Sign in with facebook</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </form>
+
+  </div>
+</div>
+<!-- jQuery -->
+<!-- Bootstrap JavaScript
+<script src="login_files/jquery.js"></script>
+<script src="login_files/cdn.js"></script>
 
 
 </body><!--</html>-->

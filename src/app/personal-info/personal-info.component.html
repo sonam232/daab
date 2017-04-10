@@ -1,0 +1,311 @@
+<div class="container">
+  <div class="row">
+    <section class="col-md-12">
+      <div class="vertcal_outer">
+        <div class="vertcal_inner_block">
+          <ul class="text-center info_num">
+            <li class="num_select"><a>1</a></li>
+            <li><a>2</a></li>
+            <li><a>3</a>
+            </li>
+          </ul>
+          <h4 class="text-center info_num_msg">Please complete your profile and make payment, else your business will be
+            not listed on app</h4>
+          <div class="signin_bg_comman text-center">
+            <h2 class="form_title text-center">Personal Info</h2>
+            <form class="vendor_personal_info"><input name="_method" type="hidden" value="PUT"><input name="_token"
+                                                                                                      type="hidden"
+                                                                                                      value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
+              <div id="image">
+                <p class="pic_upload text-center">
+                                    <span>
+                                         <img src="./personnel_profile_files/no-user.png" alt="upload your picture"
+                                              id="venImage" width="100" height="100"
+                                              onclick="document.getElementById(&#39;files&#39;).click(); return false">
+                                        </span></p>
+                <div class="clearfix"></div>
+                <div class="fileUpload btn btn-default">
+                  <span>Upload</span>
+                  <input type="file" accept="image/*" class="upload" id="files" name="files">
+                </div>
+
+                <p></p>
+              </div>
+              <div id="pers_info_err"></div>
+              <div class="form-group">
+                <span class="glyphicon glyphicon-user"></span>
+                <input type="text" class="form-control" id="first_name" placeholder="FIRST NAME" name="user[first_name]"
+                       value="">
+              </div>
+              <div class="form-group">
+                <span class="glyphicon glyphicon-user"></span>
+                <input type="text" class="form-control" id="last_name" placeholder="LAST NAME" name="user[last_name]"
+                       value="">
+              </div>
+              <div class="form-group">
+                <span class="glyphicon glyphicon-earphone"></span>
+                <input type="text" class="form-control" id="mobile" name="user[mobile]" value="">
+              </div>
+              <input type="hidden" name="_token" value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
+              <button type="submit" class="btn btn-primary btn-lg btn-block btn_primary" id="persSubmit"
+                      [routerLink]="['/business']">
+                NEXT
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModalForImageCrop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Crop Image</h4>
+      </div>
+      <div id="img_info_err"></div>
+      <div class="modal-body text-center" style="width: 405px; height: 200px;" id="imageCropProfile">
+        <img src="./personnel_profile_files/ajax-loader.gif" id="PicloaderImg">
+      </div>
+      <div class="modal-footer">
+        <input type="button" id="btnCrop" class="btn btn-success" value="Apply" style="display: none;">
+        <input type="button" id="btnUpload" class="btn btn-failure" value="Cancel">
+        <input type="hidden" name="imgX1" id="PicimgX1">
+        <input type="hidden" name="imgY1" id="PicimgY1">
+        <input type="hidden" name="imgWidth" id="PicimgWidth">
+        <input type="hidden" name="imgHeight" id="PicimgHeight">
+        <input type="hidden" name="imgCropped" id="PicimgCropped">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--&lt;!&ndash; jQuery &ndash;&gt;
+<script src="./personnel_profile_files/code.jquery.com-jquery.js"></script>
+<script src="./personnel_profile_files/mask.js"></script>-->
+<!-- Bootstrap JavaScript -->
+<!--<script src="./personnel_profile_files/bootstrap.min.js"></script>
+<script src="./personnel_profile_files/jquery.Jcrop.min.js"></script>
+<link rel="stylesheet" href="./personnel_profile_files/jquery.Jcrop.css" type="text/css">-->
+<!--
+<script type="text/javascript">
+  $(window).load(function () {
+    $("#files").change(function () {
+      $('#PicloaderImg').show();
+      $("#ImagePic").remove();
+      if (imageValidation()) {
+        $('#myModalForImageCrop').modal('show');
+        if (typeof jcrop_api_profile != 'undefined') {
+          jcrop_api_profile.destroy();
+          jcrop_api_profile = null;
+        }
+        var errorsHtml = '';
+        $("#pers_info_err").html(errorsHtml);
+        var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
+        var form_data = new FormData()
+        form_data.append("files", file_data);
+        var token = $('input[name=_token]').val();
+
+        $.ajax({
+          url: '/crop/profile',
+          type: 'POST',
+          data: form_data,
+          headers: {'X-CSRF-TOKEN': token},
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            if (data == 'failure') {
+              $(".close").click();
+              errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload Service image</p>';
+              $("#pers_info_err").html(errorsHtml);
+            } else {
+              cropProfile(data);
+            }
+          },
+          error: function (data) {
+            if (data.status === 401) {//redirect if not authenticated user
+              $(location).prop('pathname', 'auth/login');
+              var errors = data.responseJSON.msg;
+              $(".close").click();
+              errorsHtml = '<div class="alert alert-danger">' + errors + '</div>';
+              $('#pers_info_err').html(errorsHtml);
+            }
+
+            if (data.status === 422) {
+              //process validation errors here.
+              var errors = data.responseJSON;
+              errorsHtml = '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a><ul>';
+              $.each(errors, function (key, value) {
+                errorsHtml += '<li>' + value[0] + '</li>';
+              });
+              errorsHtml += '</ul></div>';
+              $(".close").click();
+              $('#pers_info_err').html(errorsHtml);
+            } else {
+
+            }
+          }
+        });
+      }
+    });
+    function getImageSize(url, callback) {
+      $('#ImagePic').attr('src', url).load(function () {
+        callback(this.width, this.height);
+      });
+    }
+
+    function cropProfile(imgSrc) {
+      $('#imageCropProfile').append('<img id="ImagePic" src="' + imgSrc + '" style="display: none"/>');
+      getImageSize($("ImagePic").attr('src'), function (width, height) {
+        $('#ImagePic').Jcrop({
+          setSelect: [0, 0, 200, 200],
+          aspectRatio: 200 / 200,
+          allowResize: false,
+          allowSelect: true,
+          boxWidth: 400,
+          boxHeight: 200,
+          onChange: SetCoordinatesProfile,
+          onSelect: SetCoordinatesProfile,
+          trueSize: [width, height]
+        }, function () {
+          var bounds = this.getBounds();
+          boundx = bounds[0];
+          boundy = bounds[1];
+          jcrop_api_profile = this;
+        });
+        $('#PicloaderImg').hide();
+      });
+    }
+
+    function SetCoordinatesProfile(c) {
+      $('#PicimgX1').val(c.x);
+      $('#PicimgY1').val(c.y);
+      $('#PicimgWidth').val(c.w);
+      $('#PicimgHeight').val(c.h);
+      $('#btnCrop').show();
+      $('.jcrop-keymgr').hide();
+    }
+
+    $('#btnCrop').click(function (e) {
+      var x1 = $('#PicimgX1').val();
+      var y1 = $('#PicimgY1').val();
+      var width = $('#PicimgWidth').val();
+      var height = $('#PicimgHeight').val();
+      var errorsHtml = '';
+      $("#img_info_err").html(errorsHtml);
+      $("#pers_info_err").html(errorsHtml);
+      var PicimgWidth = $("#PicimgWidth").val();
+      if (PicimgWidth) {
+        if (parseInt(PicimgWidth) == 0) {
+          errorsHtml = '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a> Please crop service image <div>';
+          $('#img_info_err').html(errorsHtml);
+          return false;
+        }
+      }
+      var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
+      var form_data = new FormData()
+      form_data.append("files", file_data);
+      form_data.append("imgX1", $("#PicimgX1").val());
+      form_data.append("imgY1", $("#PicimgY1").val());
+      form_data.append("imgWidth", $("#PicimgWidth").val());
+      form_data.append("imgHeight", $("#PicimgHeight").val());
+      var token = $('input[name=_token]').val();
+
+      $.ajax({
+        url: '/upload/profile/pic',
+        type: 'POST',
+        data: form_data,
+        headers: {'X-CSRF-TOKEN': token},
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          if (data == 'failure') {
+            errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload jpg, jpeg, png, gif image only</p>';
+            $(".close").click();
+            $("#pers_info_err").html(errorsHtml);
+          } else {
+            $(".close").click();
+            $('#venImage').attr("src", '');
+            $('#venImage').attr("src", data);
+            $('#imageProfileTop').attr("src", data);
+            errorsHtml = '<p class="alert alert-success"><a href="#" class="close" data-dismiss="alert">&times;</a>Profile image uploaded</p>';
+            $("#pers_info_err").html(errorsHtml);
+            setTimeout(function () {   //calls click event after a certain time
+              $(".close").click();
+            }, 500);
+          }
+        },
+        error: function (data) {
+          if (data.status === 401) {//redirect if not authenticated user
+            $(location).prop('pathname', 'auth/login');
+            var errors = data.responseJSON.msg;
+            errorsHtml = '<div class="alert alert-danger">' + errors + '</div>';
+            $('#pers_info_err').html(errorsHtml);
+          }
+        }
+      });
+      $(".close").click();
+    });
+
+    $('#btnUpload').click(function () {
+      $("#ImagePic").remove();
+      $(".close").click();
+    });
+
+    function imageValidation() {
+      var errorsHtml = '';
+      $("#pers_info_err").html(errorsHtml);
+      var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
+      if (file_data) {
+        if (file_data.size > 1024 * 1000) {
+          errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload image less 1024 kilobytes</p>';
+          $("#pers_info_err").html(errorsHtml);
+          return false;
+        }
+        var ext = $("#files").val().toLowerCase().match(/\.(.+)$/)[1];
+        if (ext) {
+          switch (ext) {
+            case 'jpg':
+            case 'jpeg':
+            case 'png':
+            case 'gif':
+              return true;
+            default:
+              errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload jpg, jpeg, png, gif image only</p>';
+              $("#pers_info_err").html(errorsHtml);
+              return false;
+          }
+        }
+      }
+    }
+
+    $('#mobile').keyup(function () {
+      var data = $(this).val().trim();
+      var regx = /([ -\.])*(\(0\))?(\(?[\d]{10}\)?|(\(?[\d]{4}\)?([ -\.])*\(?[\d]{3}\)?([ -\.])*\(?[\d]{3}\)?)|\(?[\d]{3}\)?([ -\.])*\(?[\d]{3}\)?([ -\.])*\(?[\d]{4}\)?)$/;
+
+      if (data.match(regx)) {
+        $('#mobile').removeClass("input-bg-cross-img");
+        $('#mobile').addClass("input-bg-tick-img");
+      }
+      else {
+        $('#mobile').removeClass("input-bg-tick-img");
+        $('#mobile').addClass("input-bg-cross-img");
+      }
+    });
+
+  });
+</script>
+-->
+
+
+

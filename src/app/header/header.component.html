@@ -1,28 +1,43 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#myNavbar"> 
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
-         <span class="icon-bar"></span> 
-         <span class="icon-bar"></span>
-          <span class="icon-bar"></span> 
-        </button>
-      <a style="font-size:40px" class="navbar-brand" href="#myPage">daab</a> 
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a style="font-size:40px" class="navbar-brand" href="#myPage">daab</a>
     </div>
+    {{is_login()}}
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" *ngIf="!is_login()">
         <li>
-           <a routerLink="/home" routerLinkActive="active">Home</a>
-           </li>
+          <a routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
         <li>
-          <a routerLink ="/register" routerLinkActive="active">Register</a>
-           </li>
+          <a routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
         <li>
-           <a  routerLink="/log-in" routerLinkActive="active">Log In</a>
-           </li>
+          <a routerLink="/log-in" routerLinkActive="active">Log In</a>
+        </li>
         <li>
           <a routerLink="about-us" routerLinkActive="active">About Us</a>
-          
+
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="is_login()">
+        <li class="dropdown">
+          <a class="dropdown-toggle header_dropdown" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false"><img id="imageProfileTop" src="./change_password_files/no-user.png" class=""
+                                        width="30" height="30" alt="Default User Image"> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/personal-info']">My Profile</a></li>
+            <li><a [routerLink]="['/business']">My Business</a></li>
+            <li><a [routerLink]="['/payment']">Payments</a></li>
+            <li><a [routerLink]="['/change-password']">Change Password</a></li>
+            <li><a data-confirm="Are you sure?">Logout</a></li>
+          </ul>
         </li>
       </ul>
     </div>

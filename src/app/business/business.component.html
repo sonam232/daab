@@ -1,0 +1,575 @@
+<!--<!DOCTYPE html>
+&lt;!&ndash; saved from url=(0028)http://192.168.1.16/business &ndash;&gt;
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">&lt;!&ndash;<![endif]&ndash;&gt;<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>daab</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  &lt;!&ndash; Place favicon.ico and apple-touch-icon.png in the root directory &ndash;&gt;
+  <link rel="shortcut icon" type="image/png" href="http://192.168.1.16/images/favicon.png">
+
+  <link href="./business_profile_files/css" rel="stylesheet" type="text/css">
+  <link href="./business_profile_files/css(1)" rel="stylesheet" type="text/css">
+<!--
+  <link rel="stylesheet" type="text/css" href="./business_profile_files/style.css">
+  <link rel="stylesheet" type="text/css" href="./business_profile_files/common.css">
+  <link rel="stylesheet" href="./business_profile_files/slicknav.css">
+  <link rel="stylesheet" href="./business_profile_files/owl.carousel.css">
+  <link rel="stylesheet" href="./business_profile_files/font-awesome.min.css">
+  <link rel="stylesheet" href="./business_profile_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./business_profile_files/main.css">
+  <link rel="stylesheet" href="./business_profile_files/responsive.css">
+  <script src="./business_profile_files/modernizr-2.6.2.min.js"></script>
+</head>
+<body>&ndash;&gt;
+&lt;!&ndash;[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]&ndash;&gt;
+
+&lt;!&ndash; Add your site or application content here &ndash;&gt;
+
+&lt;!&ndash; header Start
+================================================= &ndash;&gt;
+
+<nav class="navbar navbar-default my_nav">
+  <div class="container">
+    <div class="navbar-header top_logo">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a style="font-size:40px" class="navbar-brand logo" href="http://192.168.1.16/"><img src="./business_profile_files/logo_web.png"></a>
+    </div>
+    &lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;
+    <div class="collapse navbar-collapse top_right_nav navbar-right" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="http://192.168.1.16/business#" class="dropdown-toggle header_dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="imageProfileTop" src="./business_profile_files/no-user.png" class="" width="30" height="30" alt="Default User Image">  <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li> <a [routerLink]="['/personal-info']" >My Profile</a></li>
+            <li> <a [routerLink]="['/business']">My Business</a></li>
+            <li> <a [routerLink]="['/payment']" >Payments</a></li>
+            <li> <a [routerLink]="['/change-password']" >Change Password</a></li>
+            <li> <a  data-confirm="Are you sure?">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;
+    &lt;!&ndash; </div> /.container-fluid &ndash;&gt;
+  </div>
+</nav>-->
+
+<!-- #heder close -->
+
+<div class="container">
+  <div class="row">
+    <section class="col-md-12">
+      <div class="vertcal_outer">
+        <div class="vertcal_inner_block">
+          <ul class="text-center info_num">
+            <li><a>1</a></li>
+            <li class="num_select"><a>2</a></li>
+            <li><a>3</a>
+            </li>
+          </ul>
+          <h4 class="text-center info_num_msg">Please complete your profile and make payment, else your business will be not listed on app</h4>
+          <div class="signin_bg_comman text-center">
+            <h2 class="form_title text-center">Business Profile</h2>
+            <form><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
+              <div id="image">
+                <p class="pic_upload text-center">
+                            <span>
+                               <img src="./business_profile_files/default_banner.png" alt="upload your picture" id="venImage" onclick="document.getElementById(&#39;files&#39;).click(); return false" style="width: 300px; height: 150px;">
+                               </span></p><div class="clearfix"></div>
+                <div class="fileUpload btn btn-default">
+                  <span>Upload</span>
+                  <input type="file" accept="image/*" class="upload" id="files" name="files">
+                </div>
+
+
+                <p></p>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control indent_zero" placeholder="Business Name" name="business[name]" value="">
+              </div>
+              <div class="form-group character_count">
+                <textarea class="form-control custom_textarea indent_zero textareaHeight" placeholder="Brag about your business" rows="5" name="business[description]" id="desc"></textarea>
+                <div class="text-right count">
+                  <span id="chars">500</span>
+                </div>
+
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control indent_zero" placeholder="Website url (Optional)" name="business[website]" value="">
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="business[category_id]" id="category">
+                  <option value="" selected="" hidden="">Select Category</option>
+                  <option value="1">Accounting, Auditing and Tax Services</option>
+                  <option value="2">Advertising</option>
+                  <option value="3">Architecture, Interior Design and Furniture</option>
+                  <option value="4">Banking and Financial Services</option>
+                  <option value="5">Building and Construction Services</option>
+                  <option value="6">Business Administration Services</option>
+                  <option value="7">Business Associations</option>
+                  <option value="8">Business Consulting</option>
+                  <option value="9">Business Development</option>
+                  <option value="10">Car Services and Rentals</option>
+                  <option value="11">Chambers of Commerce</option>
+                  <option value="12">Computer and Internet Services</option>
+                  <option value="13">Customs Brokerage</option>
+                  <option value="14">Debt Collection</option>
+                  <option value="15">Distributors, Sales Agents and Importers</option>
+                  <option value="16">Education and Training Services</option>
+                  <option value="17">Electronic Components and Supplies</option>
+                  <option value="18">Engineering Services</option>
+                  <option value="19">Entertainment Services</option>
+                  <option value="20">Environmental Services</option>
+                  <option value="21">Event Management, Conference Equipment and Facilitation</option>
+                  <option value="22">Export Management</option>
+                  <option value="23">Graphic Design</option>
+                  <option value="24">Hospitals, Clinics and Health Services</option>
+                  <option value="25">Hotels and Meeting Facilities</option>
+                  <option value="26">Human Resources</option>
+                  <option value="27">Insurance Services</option>
+                  <option value="28">Legal Services</option>
+                  <option value="29">Manufacturing and Industrial Production Services</option>
+                  <option value="30">Market Research</option>
+                  <option value="31">Marketing, Public Relations and Sales</option>
+                  <option value="32">Mining and Oil and Gas Services</option>
+                  <option value="33">Office Furniture</option>
+                  <option value="34">Office Rental</option>
+                  <option value="35">Other Business Services</option>
+                  <option value="36">Patent and Trademark Law Services</option>
+                  <option value="37">Photographic Services</option>
+                  <option value="38">Printing and Publishing Services</option>
+                  <option value="39">Product Standards, Testing, and Certification</option>
+                  <option value="40">Real Estate Services</option>
+                  <option value="41">Regional Economic Development</option>
+                  <option value="42">Relocation services</option>
+                  <option value="43">Restaurants and Catering</option>
+                  <option value="44">Retailers</option>
+                  <option value="45">Security and Personal Safety</option>
+                  <option value="46">Telecommunications</option>
+                  <option value="47">Trade Show and Exhibition Services</option>
+                  <option value="48">Translation and Interpretation</option>
+                  <option value="49">Transportation, Freight Forwarder and Storage Services</option>
+                  <option value="50">Travel Facilitation</option>
+                  <option value="51">Vetting/Due Diligence</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control indent_zero" placeholder=" Street1" name="business[street1]" value="">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control indent_zero" placeholder=" Street2" name="business[street2]" value="">
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4 mrgn_t_10">
+                    <input type="text" pattern="[0-9]*" maxlength="5" class="form-control indent_zero" id="zip" placeholder="ZIP" name="business[zip]" value="">
+                    <p class="zip-error" style="display: none">Invalid zip code.</p></div>
+                  <div class="col-md-5 mrgn_t_10">
+                    <input type="text" class="form-control indent_zero" id="city" placeholder="CITY" name="business[city]" value=""></div>
+                  <div class="col-md-3 mrgn_t_10 state_text_indent">
+                    <select class="form-control" name="business[state]" id="state">
+                      <option value="">State</option>
+                      <option value="AL">AL</option>
+                      <option value="AK">AK</option>
+                      <option value="AS">AS</option>
+                      <option value="AZ">AZ</option>
+                      <option value="AR">AR</option>
+                      <option value="CA">CA</option>
+                      <option value="CO">CO</option>
+                      <option value="CT">CT</option>
+                      <option value="DE">DE</option>
+                      <option value="DC">DC</option>
+                      <option value="FM">FM</option>
+                      <option value="FL">FL</option>
+                      <option value="GA">GA</option>
+                      <option value="GU">GU</option>
+                      <option value="HI">HI</option>
+                      <option value="ID">ID</option>
+                      <option value="IL">IL</option>
+                      <option value="IN">IN</option>
+                      <option value="IA">IA</option>
+                      <option value="KS">KS</option>
+                      <option value="KY">KY</option>
+                      <option value="LA">LA</option>
+                      <option value="ME">ME</option>
+                      <option value="MH">MH</option>
+                      <option value="MD">MD</option>
+                      <option value="MA">MA</option>
+                      <option value="MI">MI</option>
+                      <option value="MN">MN</option>
+                      <option value="MS">MS</option>
+                      <option value="MO">MO</option>
+                      <option value="MT">MT</option>
+                      <option value="NE">NE</option>
+                      <option value="NV">NV</option>
+                      <option value="NH">NH</option>
+                      <option value="NJ">NJ</option>
+                      <option value="NM">NM</option>
+                      <option value="NY">NY</option>
+                      <option value="NC">NC</option>
+                      <option value="ND">ND</option>
+                      <option value="MP">MP</option>
+                      <option value="OH">OH</option>
+                      <option value="OK">OK</option>
+                      <option value="OR">OR</option>
+                      <option value="PW">PW</option>
+                      <option value="PA">PA</option>
+                      <option value="PR">PR</option>
+                      <option value="RI">RI</option>
+                      <option value="SC">SC</option>
+                      <option value="SD">SD</option>
+                      <option value="TN">TN</option>
+                      <option value="TX">TX</option>
+                      <option value="UT">UT</option>
+                      <option value="VT">VT</option>
+                      <option value="VI">VI</option>
+                      <option value="VA">VA</option>
+                      <option value="WA">WA</option>
+                      <option value="WV">WV</option>
+                      <option value="WI">WI</option>
+                      <option value="WY">WY</option>
+                      <option value="AE">AE</option>
+                      <option value="AA">AA</option>
+                      <option value="AP">AP</option>
+                    </select>
+                    <!--<input type="text" class="form-control indent_zero" id="state" placeholder="STATE" name="state" value=""-->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-sm-6"><a href="http://192.168.1.16/personal-info" class="btn btn-default btn-lg btn-block">Back</a>
+                </div>
+                <div class="col-md-6 col-sm-6 nxt_btn_mrgin">
+                  <input type="hidden" name="_token" value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block btn_primary"[routerLink]="['/payment']" >NEXT
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalForImageCrop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="myModalLabel">Crop Image</h4>
+      </div>
+      <div id="img_info_err"></div>
+      <div class="modal-body text-center" style="width: 405px; height: 200px;" id="imageCropProfile">
+        <img src="./business_profile_files/ajax-loader.gif" id="PicloaderImg">
+      </div>
+      <div class="modal-footer">
+        <input type="button" id="btnCrop" class="btn btn-success" value="Apply" style="display: none;">
+        <input type="button" id="btnUpload" class="btn btn-failure" value="Cancel">
+        <input type="hidden" name="imgX1" id="PicimgX1">
+        <input type="hidden" name="imgY1" id="PicimgY1">
+        <input type="hidden" name="imgWidth" id="PicimgWidth">
+        <input type="hidden" name="imgHeight" id="PicimgHeight">
+        <input type="hidden" name="imgCropped" id="PicimgCropped">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- jQuery -->
+<!--<script src="./business_profile_files/code.jquery.com-jquery.js"></script>
+&lt;!&ndash; Bootstrap JavaScript &ndash;&gt;
+<script src="./business_profile_files/bootstrap.min.js"></script>
+<script src="./business_profile_files/jquery.Jcrop.min.js"></script>
+<link rel="stylesheet" href="./business_profile_files/jquery.Jcrop.css" type="text/css">
+&lt;!&ndash;<script>-->
+  <!--function is_int(value) {
+    if ((parseFloat(value) == parseInt(value)) && !isNaN(value)) {
+      return true;
+    } else {
+      $("#city").val('');
+      /* Fill the data */
+      $("#state").val('');
+      return false;
+    }
+  }
+  $("#zip").keyup(function () {
+    //$("#city").html('<img src="http://dev.bookyourpet.com/images/spinner.gif" alt="Wait" />');
+    //$("#state").html('<img src="images/spinner.gif" alt="Wait" />');
+    $(".zip-error").hide();
+    /* In case they failed once before */
+    var el = $(this);
+    if ((el.val().length == 5) && (is_int(el.val()))) {
+      $.ajax({
+        url: '/zip_metadata',
+        type: "GET",
+        data: "zip=" + el.val(),
+        contentType: 'application/json',
+        success: function (result, success) {
+          console.log(result, result.city);
+          $("#city").val(result['city']);
+          /* Fill the data */
+          $("#state").val(result['state']);
+          if ($("#city").val() == "" || $("#state").val() == "") {
+            $(".zip-error").show();
+            /* Ruh row */
+          } else {
+            $(".zip-error").hide();
+            /* In case they failed once before */
+          }
+        },
+        error: function (result, success) {
+          $(".zip-error").show();
+          /* Ruh row */
+        }
+      });
+    } else {
+      $(".zip-error").show();
+      /* Ruh row */
+    }
+  });
+  (function ($) {
+    $.fn.extend({
+      limiter: function (limit, elem) {
+        $(this).on("keyup focus", function () {
+          setCount(this, elem);
+        });
+        function setCount(src, elem) {
+          var chars = src.value.length;
+          if (chars > limit) {
+            src.value = src.value.substr(0, limit);
+            chars = limit;
+          }
+          elem.html(limit - chars);
+        }
+
+        setCount($(this)[0], elem);
+      }
+    });
+  })(jQuery);
+  var elem = $("#chars");
+  $("#desc").limiter(500, elem);
+</script>
+<script type="text/javascript">
+  $(window).load(function () {
+    $("#files").change(function () {
+      $('#PicloaderImg').show();
+      $("#ImagePic").remove();
+      if (imageValidation()) {
+        $('#myModalForImageCrop').modal('show');
+        if (typeof jcrop_api_profile != 'undefined') {
+          jcrop_api_profile.destroy();
+          jcrop_api_profile = null;
+        }
+        var errorsHtml = '';
+        $("#pers_info_err").html(errorsHtml);
+        var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
+        var form_data = new FormData()
+        form_data.append("files", file_data);
+        var token = $('input[name=_token]').val();
+
+        $.ajax({
+          url: '/crop/profile',
+          type: 'POST',
+          data: form_data,
+          headers: {'X-CSRF-TOKEN': token},
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            if (data == 'failure') {
+              $(".close").click();
+              errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload Service image</p>';
+              $("#pers_info_err").html(errorsHtml);
+            } else {
+              cropProfile(data);
+            }
+          },
+          error: function (data) {
+            if (data.status === 401) {//redirect if not authenticated user
+              $(location).prop('pathname', 'auth/login');
+              var errors = data.responseJSON.msg;
+              $(".close").click();
+              errorsHtml = '<div class="alert alert-danger">' + errors + '</div>';
+              $('#pers_info_err').html(errorsHtml);
+            }
+
+            if (data.status === 422) {
+              //process validation errors here.
+              var errors = data.responseJSON;
+              errorsHtml = '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a><ul>';
+              $.each(errors, function (key, value) {
+                errorsHtml += '<li>' + value[0] + '</li>';
+              });
+              errorsHtml += '</ul></div>';
+              $(".close").click();
+              $('#pers_info_err').html(errorsHtml);
+            } else {
+
+            }
+          }
+        });
+      }
+    });
+    function getImageSize(url, callback) {
+      $('#ImagePic').attr('src', url).load(function () {
+        callback(this.width, this.height);
+      });
+    }
+
+    function cropProfile(imgSrc) {
+      $('#imageCropProfile').append('<img id="ImagePic" src="' + imgSrc + '" style="display: none"/>');
+      getImageSize($("ImagePic").attr('src'), function (width, height) {
+        $('#ImagePic').Jcrop({
+          setSelect: [0, 0, 600, 300],
+          aspectRatio: 600 / 300,
+          allowResize: false,
+          allowSelect: true,
+          boxWidth: 400,
+          boxHeight: 200,
+          onChange: SetCoordinatesProfile,
+          onSelect: SetCoordinatesProfile,
+          trueSize: [width, height]
+        }, function () {
+          var bounds = this.getBounds();
+          boundx = bounds[0];
+          boundy = bounds[1];
+          jcrop_api_profile = this;
+        });
+        $('#PicloaderImg').hide();
+      });
+    }
+
+    function SetCoordinatesProfile(c) {
+      $('#PicimgX1').val(c.x);
+      $('#PicimgY1').val(c.y);
+      $('#PicimgWidth').val(c.w);
+      $('#PicimgHeight').val(c.h);
+      $('#btnCrop').show();
+      $('.jcrop-keymgr').hide();
+    }
+
+    $('#btnCrop').click(function (e) {
+      var x1 = $('#PicimgX1').val();
+      var y1 = $('#PicimgY1').val();
+      var width = $('#PicimgWidth').val();
+      var height = $('#PicimgHeight').val();
+      var errorsHtml = '';
+      $("#img_info_err").html(errorsHtml);
+      $("#pers_info_err").html(errorsHtml);
+      var PicimgWidth = $("#PicimgWidth").val();
+      if (PicimgWidth) {
+        if (parseInt(PicimgWidth) == 0) {
+          errorsHtml = '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a> Please crop service image <div>';
+          $('#img_info_err').html(errorsHtml);
+          return false;
+        }
+      }
+      var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
+      var form_data = new FormData()
+      form_data.append("files", file_data);
+      form_data.append("imgX1", $("#PicimgX1").val());
+      form_data.append("imgY1", $("#PicimgY1").val());
+      form_data.append("imgWidth", $("#PicimgWidth").val());
+      form_data.append("imgHeight", $("#PicimgHeight").val());
+      var token = $('input[name=_token]').val();
+
+      $.ajax({
+        url: '/upload/profile/banner',
+        type: 'POST',
+        data: form_data,
+        headers: {'X-CSRF-TOKEN': token},
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+          if (data == 'failure') {
+            errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload jpg, jpeg, png, gif image only</p>';
+            $(".close").click();
+            $("#pers_info_err").html(errorsHtml);
+          } else {
+            $(".close").click();
+            $('#venImage').attr("src", '');
+            $('#venImage').attr("src", data);
+            errorsHtml = '<p class="alert alert-success"><a href="#" class="close" data-dismiss="alert">&times;</a>Profile image uploaded</p>';
+            $("#pers_info_err").html(errorsHtml);
+            setTimeout(function () {   //calls click event after a certain time
+              $(".close").click();
+            }, 500);
+          }
+        },
+        error: function (data) {
+          if (data.status === 401) {//redirect if not authenticated user
+            $(location).prop('pathname', 'auth/login');
+            var errors = data.responseJSON.msg;
+            errorsHtml = '<div class="alert alert-danger">' + errors + '</div>';
+            $('#pers_info_err').html(errorsHtml);
+          }
+        }
+      });
+      $(".close").click();
+    });
+
+    $('#btnUpload').click(function () {
+      $("#ImagePic").remove();
+      $(".close").click();
+    });
+
+    function imageValidation() {
+      var errorsHtml = '';
+      $("#pers_info_err").html(errorsHtml);
+      var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
+      if (file_data) {
+        if (file_data.size > 1024 * 1000) {
+          errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload image less 1024 kilobytes</p>';
+          $("#pers_info_err").html(errorsHtml);
+          return false;
+        }
+        var ext = $("#files").val().toLowerCase().match(/\.(.+)$/)[1];
+        if (ext) {
+          switch (ext) {
+            case 'jpg':
+            case 'jpeg':
+            case 'png':
+            case 'gif':
+              return true;
+            default:
+              errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload jpg, jpeg, png, gif image only</p>';
+              $("#pers_info_err").html(errorsHtml);
+              return false;
+          }
+        }
+      }
+    }
+
+    $('#mobile').keyup(function () {
+      var data = $(this).val().trim();
+      var regx = /([ -\.])*(\(0\))?(\(?[\d]{10}\)?|(\(?[\d]{4}\)?([ -\.])*\(?[\d]{3}\)?([ -\.])*\(?[\d]{3}\)?)|\(?[\d]{3}\)?([ -\.])*\(?[\d]{3}\)?([ -\.])*\(?[\d]{4}\)?)$/;
+
+      if (data.match(regx)) {
+        $('#mobile').removeClass("input-bg-cross-img");
+        $('#mobile').addClass("input-bg-tick-img");
+      }
+      else {
+        $('#mobile').removeClass("input-bg-tick-img");
+        $('#mobile').addClass("input-bg-cross-img");
+      }
+    });
+
+  });
+</script>&ndash;&gt;-->
+
+
+

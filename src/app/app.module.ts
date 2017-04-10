@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './log-in/log-in.component';
@@ -21,6 +20,10 @@ import { BaseRequestOptions } from '@angular/http';
 
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { BusinessComponent } from './business/business.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 
@@ -33,13 +36,16 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
   declarations: [
     AppComponent,
     HeaderComponent,
-    DashboardComponent,
     HomeComponent,
     RegisterComponent,
 
     LoginComponent,
     AboutUsComponent,
-    AlertComponent
+    AlertComponent,
+    PersonalInfoComponent,
+    BusinessComponent,
+    PaymentComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +61,6 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
         path: 'register',
         component: RegisterComponent,
       },
-
-
-
       {
         path: 'log-in',
         component: LoginComponent,
@@ -65,6 +68,22 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
       {
         path: 'about-us',
         component: AboutUsComponent,
+      },
+      {
+        path: 'personal-info',
+        component: PersonalInfoComponent,
+      },
+      {
+        path: 'business',
+        component: BusinessComponent,
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+      },
+      {
+        path: 'change-password',
+        component: ChangePasswordComponent,
       },
        {
         path: '',
