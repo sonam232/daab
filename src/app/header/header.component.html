@@ -9,7 +9,9 @@
       </button>
       <a style="font-size:40px" class="navbar-brand" href="#myPage">daab</a>
     </div>
-    {{is_login()}}
+    <!--
+        {{is_login()}}
+    -->
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right" *ngIf="!is_login()">
         <li>
@@ -36,7 +38,7 @@
             <li><a [routerLink]="['/business']">My Business</a></li>
             <li><a [routerLink]="['/payment']">Payments</a></li>
             <li><a [routerLink]="['/change-password']">Change Password</a></li>
-            <li><a data-confirm="Are you sure?">Logout</a></li>
+            <li (click)="logout()"><a data-confirm="Are you sure?">Logout</a></li>
           </ul>
         </li>
       </ul>

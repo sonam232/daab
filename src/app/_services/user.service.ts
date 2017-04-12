@@ -15,6 +15,7 @@ export class UserService {
   getById(id: number) {
     return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
   }
+// create user
 
   create(user: User) {
 
@@ -24,7 +25,7 @@ export class UserService {
     const options = new RequestOptions({headers: headers});
     console.log('options :', JSON.stringify(options));
 console.log('USER :' + JSON.stringify(user));
-    return this.http.post('http://192.168.1.16/api/signup', {
+    return this.http.post('http://daabglobal.com/api/signup', {
       'user': {
         email: user.email,
      password: user.password,
@@ -39,6 +40,75 @@ console.log('USER :' + JSON.stringify(user));
       }*/
     }, options).map((response: Response) => response.json());
   }
+// update user personal info
+  update(user: User) {
+   console.log(user);
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Bearer '+localStorage.getItem('access_token'));
+    const options = new RequestOptions({headers: headers});
+    console.log('options :', JSON.stringify(options));
+    console.log('USER :' + JSON.stringify(user));
+    return this.http.put('http://daabglobal.com/api/user',
+      {
+      'user': {
+        first_name : user.first_name,
+        last_name: user.last_name,
+        mobile : user.mobile
+      }
+
+    }, options).map((response: Response) => response.json());
+  }
+
+  //update user businesss info
+
+  update2 (user: User) {
+   console.log(user);
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Bearer '+localStorage.getItem('access_token'));
+    const options = new RequestOptions({headers: headers});
+    console.log('options :', JSON.stringify(options));
+    console.log('USER :' + JSON.stringify(user));
+    return this.http.put('http://daabglobal.com/api/user', {
+      'user': {
+        name : user.name,
+        description : user.description,
+        website : user.website,
+        category_id : user.category_id,
+        street1 : user.street1,
+        street2 : user.street2,
+        zip : user.zip,
+        city: user.city,
+        state: user.state
+      }
+    }, options).map((response: Response) => response.json());
+  }
+
+  // change password
+
+  update3 (user: User) {
+
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({headers: headers});
+    console.log('options :', JSON.stringify(options));
+    console.log('USER :' + JSON.stringify(user));
+    return this.http.put('http://daabglobal.com/api/user/change_password', {
+      'user': {
+        email: user.email,
+        password: user.password,
+        password_confirmation: user.password_confirmation,
+        user_type: 'vendor'
+      }
+    }, options).map((response: Response) => response.json());
+  }
+
+
+  /*
 
   /*update(user: User) {
     return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());

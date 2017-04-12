@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.model.email, this.model.password)
       .subscribe(
         data => {
+          /*console.log("==================================================sonam===="+JSON.stringify(data))*/
           this.router.navigate(['/personal-info']);
         },
         error => {

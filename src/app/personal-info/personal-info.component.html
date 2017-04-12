@@ -13,9 +13,10 @@
             not listed on app</h4>
           <div class="signin_bg_comman text-center">
             <h2 class="form_title text-center">Personal Info</h2>
-            <form class="vendor_personal_info"><input name="_method" type="hidden" value="PUT"><input name="_token"
-                                                                                                      type="hidden"
-                                                                                                      value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
+<!--
+            <form class="vendor_personal_info" ngControl="power" #power="ngForm"  name="form" (ngSubmit)="f.form.valid && update()" #f="ngForm" novalidate>
+-->
+            <form name="form" no validate >
               <div id="image">
                 <p class="pic_upload text-center">
                                     <span>
@@ -29,25 +30,25 @@
                   <input type="file" accept="image/*" class="upload" id="files" name="files">
                 </div>
 
-                <p></p>
               </div>
               <div id="pers_info_err"></div>
-              <div class="form-group">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first_name.valid }" >
                 <span class="glyphicon glyphicon-user"></span>
-                <input type="text" class="form-control" id="first_name" placeholder="FIRST NAME" name="user[first_name]"
-                       value="">
+                <input type="text" class="form-control" id="first_name" placeholder="FIRST NAME" name="user[first_name]" [(ngModel)]="model.first_name" value="" #first_name="ngModel" required />
+                <div *ngIf="f.submitted && !first_name.valid" class="help-block">firstName is required</div>
               </div>
-              <div class="form-group">
+              <div class="form-group"  [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
                 <span class="glyphicon glyphicon-user"></span>
                 <input type="text" class="form-control" id="last_name" placeholder="LAST NAME" name="user[last_name]"
-                       value="">
+                       value="" [(ngModel)]="model.last_name" value="" #last_name="ngModel" required >
+                <div *ngIf="f.submitted && !last_name.valid" class="help-block">last Name is required</div>
               </div>
-              <div class="form-group">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !mobile.valid }" >
                 <span class="glyphicon glyphicon-earphone"></span>
-                <input type="text" class="form-control" id="mobile" name="user[mobile]" value="">
+                <input type="text" class="form-control" id="mobile" name="user[mobile]"  [(ngModel)]="model.mobile" value="" #mobile="ngModel" required >
               </div>
-              <input type="hidden" name="_token" value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
-              <button type="submit" class="btn btn-primary btn-lg btn-block btn_primary" id="persSubmit"
+              <input type="hidden" >
+              <button type="submit"  (click)="update()" [hidden]="power.valid " [disabled]="f.invalid" class="btn btn-primary btn-lg btn-block btn_primary" id="persSubmit"
                       [routerLink]="['/business']">
                 NEXT
               </button>

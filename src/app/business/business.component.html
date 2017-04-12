@@ -1,70 +1,3 @@
-<!--<!DOCTYPE html>
-&lt;!&ndash; saved from url=(0028)http://192.168.1.16/business &ndash;&gt;
-<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">&lt;!&ndash;<![endif]&ndash;&gt;<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>daab</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  &lt;!&ndash; Place favicon.ico and apple-touch-icon.png in the root directory &ndash;&gt;
-  <link rel="shortcut icon" type="image/png" href="http://192.168.1.16/images/favicon.png">
-
-  <link href="./business_profile_files/css" rel="stylesheet" type="text/css">
-  <link href="./business_profile_files/css(1)" rel="stylesheet" type="text/css">
-<!--
-  <link rel="stylesheet" type="text/css" href="./business_profile_files/style.css">
-  <link rel="stylesheet" type="text/css" href="./business_profile_files/common.css">
-  <link rel="stylesheet" href="./business_profile_files/slicknav.css">
-  <link rel="stylesheet" href="./business_profile_files/owl.carousel.css">
-  <link rel="stylesheet" href="./business_profile_files/font-awesome.min.css">
-  <link rel="stylesheet" href="./business_profile_files/bootstrap.min.css">
-  <link rel="stylesheet" href="./business_profile_files/main.css">
-  <link rel="stylesheet" href="./business_profile_files/responsive.css">
-  <script src="./business_profile_files/modernizr-2.6.2.min.js"></script>
-</head>
-<body>&ndash;&gt;
-&lt;!&ndash;[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
-<![endif]&ndash;&gt;
-
-&lt;!&ndash; Add your site or application content here &ndash;&gt;
-
-&lt;!&ndash; header Start
-================================================= &ndash;&gt;
-
-<nav class="navbar navbar-default my_nav">
-  <div class="container">
-    <div class="navbar-header top_logo">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a style="font-size:40px" class="navbar-brand logo" href="http://192.168.1.16/"><img src="./business_profile_files/logo_web.png"></a>
-    </div>
-    &lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;
-    <div class="collapse navbar-collapse top_right_nav navbar-right" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="http://192.168.1.16/business#" class="dropdown-toggle header_dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="imageProfileTop" src="./business_profile_files/no-user.png" class="" width="30" height="30" alt="Default User Image">  <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li> <a [routerLink]="['/personal-info']" >My Profile</a></li>
-            <li> <a [routerLink]="['/business']">My Business</a></li>
-            <li> <a [routerLink]="['/payment']" >Payments</a></li>
-            <li> <a [routerLink]="['/change-password']" >Change Password</a></li>
-            <li> <a  data-confirm="Are you sure?">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;
-    &lt;!&ndash; </div> /.container-fluid &ndash;&gt;
-  </div>
-</nav>-->
-
-<!-- #heder close -->
 
 <div class="container">
   <div class="row">
@@ -80,7 +13,7 @@
           <h4 class="text-center info_num_msg">Please complete your profile and make payment, else your business will be not listed on app</h4>
           <div class="signin_bg_comman text-center">
             <h2 class="form_title text-center">Business Profile</h2>
-            <form><input name="_method" type="hidden" value="PUT"><input name="_token" type="hidden" value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
+            <form class="vendor_business_info" ngControl="power" #power="ngForm"  name="form" (ngSubmit)="f.form.valid && update2()" #f="ngForm" novalidate>
               <div id="image">
                 <p class="pic_upload text-center">
                             <span>
@@ -94,21 +27,23 @@
 
                 <p></p>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control indent_zero" placeholder="Business Name" name="business[name]" value="">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_name.valid }">
+
+                <input type="text" class="form-control indent_zero" id = "name" placeholder="Business Name" name="business[name]"  [(ngModel)]="model.name" value="" #name="ngModel" required >
+                <div *ngIf="f.submitted && !business_name.valid" class="help-block">business name is required</div>
               </div>
-              <div class="form-group character_count">
-                <textarea class="form-control custom_textarea indent_zero textareaHeight" placeholder="Brag about your business" rows="5" name="business[description]" id="desc"></textarea>
+              <div class="form-group character_count" [ngClass]="{ 'has-error': f.submitted && !business_description.valid }">
+                <textarea class="form-control custom_textarea indent_zero textareaHeight" placeholder="Brag about your business" rows="5"  name="business[description]" id="desc" [(ngModel)]="model.description" value="" #desc="ngModel" required > </textarea>
                 <div class="text-right count">
                   <span id="chars">500</span>
                 </div>
 
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control indent_zero" placeholder="Website url (Optional)" name="business[website]" value="">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_website.valid }" >
+                <input type="text" class="form-control indent_zero" placeholder="Website url (Optional)" name="business[website]" value=""  id = "business_website" [(ngModel)]="model.website" value="" #business_website="ngModel" required />
               </div>
-              <div class="form-group">
-                <select class="form-control" name="business[category_id]" id="category">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_category.valid }" >
+                <select class="form-control" name="business[category_id]" id="business_category" [(ngModel)]="model.category_id" value="" #business_category="ngModel" required >
                   <option value="" selected="" hidden="">Select Category</option>
                   <option value="1">Accounting, Auditing and Tax Services</option>
                   <option value="2">Advertising</option>
@@ -164,21 +99,21 @@
                 </select>
               </div>
 
-              <div class="form-group">
-                <input type="text" class="form-control indent_zero" placeholder=" Street1" name="business[street1]" value="">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_street1.valid }" >
+                <input type="text" class="form-control indent_zero" placeholder=" Street1" name="business[street1]" id = "business_street1" [(ngModel)]="model.street1"  value="" #business_street1="ngModel" required />
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control indent_zero" placeholder=" Street2" name="business[street2]" value="">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_street2.valid }" >
+                <input type="text" class="form-control indent_zero" placeholder=" Street2" name="business[street2]" id = "business_street2" [(ngModel)]="model.street2" value="" #business_street2="ngModel" required />
               </div>
-              <div class="form-group">
+              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_zip.valid }" >
                 <div class="row">
                   <div class="col-md-4 mrgn_t_10">
-                    <input type="text" pattern="[0-9]*" maxlength="5" class="form-control indent_zero" id="zip" placeholder="ZIP" name="business[zip]" value="">
+                    <input type="text" pattern="[0-9]*" maxlength="5" class="form-control indent_zero" id="business_zip" placeholder="ZIP" name="business[zip]" [(ngModel)]="model.business_zip" value="" required/>
                     <p class="zip-error" style="display: none">Invalid zip code.</p></div>
                   <div class="col-md-5 mrgn_t_10">
-                    <input type="text" class="form-control indent_zero" id="city" placeholder="CITY" name="business[city]" value=""></div>
-                  <div class="col-md-3 mrgn_t_10 state_text_indent">
-                    <select class="form-control" name="business[state]" id="state">
+                    <input type="text" class="form-control indent_zero" id="city" placeholder="CITY" name="business[city]" [(ngModel)] = "model.city" value="" required/></div>
+                  <div class="col-md-3 mrgn_t_10 state_text_indent" [ngClass]="{ 'has-error': f.submitted && !business_state.valid }" >
+                    <select class="form-control" name="business[state]" id="state" [(ngModel)] = "model.state" required>
                       <option value="">State</option>
                       <option value="AL">AL</option>
                       <option value="AK">AK</option>
@@ -251,8 +186,7 @@
                 <div class="col-md-6 col-sm-6"><a href="http://192.168.1.16/personal-info" class="btn btn-default btn-lg btn-block">Back</a>
                 </div>
                 <div class="col-md-6 col-sm-6 nxt_btn_mrgin">
-                  <input type="hidden" name="_token" value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
-                  <button type="submit" class="btn btn-primary btn-lg btn-block btn_primary"[routerLink]="['/payment']" >NEXT
+                  <button type="submit" (click)="update2()" class="btn btn-primary btn-lg btn-block btn_primary" [disabled]="f.invalid" [routerLink]="['/payment']" >NEXT
                   </button>
                 </div>
               </div>
@@ -274,7 +208,7 @@
       </div>
       <div id="img_info_err"></div>
       <div class="modal-body text-center" style="width: 405px; height: 200px;" id="imageCropProfile">
-        <img src="./business_profile_files/ajax-loader.gif" id="PicloaderImg">
+        <!--<img src="./business_profile_files/ajax-loader.gif" id="PicloaderImg">-->
       </div>
       <div class="modal-footer">
         <input type="button" id="btnCrop" class="btn btn-success" value="Apply" style="display: none;">
@@ -288,288 +222,3 @@
     </div>
   </div>
 </div>
-<!-- jQuery -->
-<!--<script src="./business_profile_files/code.jquery.com-jquery.js"></script>
-&lt;!&ndash; Bootstrap JavaScript &ndash;&gt;
-<script src="./business_profile_files/bootstrap.min.js"></script>
-<script src="./business_profile_files/jquery.Jcrop.min.js"></script>
-<link rel="stylesheet" href="./business_profile_files/jquery.Jcrop.css" type="text/css">
-&lt;!&ndash;<script>-->
-  <!--function is_int(value) {
-    if ((parseFloat(value) == parseInt(value)) && !isNaN(value)) {
-      return true;
-    } else {
-      $("#city").val('');
-      /* Fill the data */
-      $("#state").val('');
-      return false;
-    }
-  }
-  $("#zip").keyup(function () {
-    //$("#city").html('<img src="http://dev.bookyourpet.com/images/spinner.gif" alt="Wait" />');
-    //$("#state").html('<img src="images/spinner.gif" alt="Wait" />');
-    $(".zip-error").hide();
-    /* In case they failed once before */
-    var el = $(this);
-    if ((el.val().length == 5) && (is_int(el.val()))) {
-      $.ajax({
-        url: '/zip_metadata',
-        type: "GET",
-        data: "zip=" + el.val(),
-        contentType: 'application/json',
-        success: function (result, success) {
-          console.log(result, result.city);
-          $("#city").val(result['city']);
-          /* Fill the data */
-          $("#state").val(result['state']);
-          if ($("#city").val() == "" || $("#state").val() == "") {
-            $(".zip-error").show();
-            /* Ruh row */
-          } else {
-            $(".zip-error").hide();
-            /* In case they failed once before */
-          }
-        },
-        error: function (result, success) {
-          $(".zip-error").show();
-          /* Ruh row */
-        }
-      });
-    } else {
-      $(".zip-error").show();
-      /* Ruh row */
-    }
-  });
-  (function ($) {
-    $.fn.extend({
-      limiter: function (limit, elem) {
-        $(this).on("keyup focus", function () {
-          setCount(this, elem);
-        });
-        function setCount(src, elem) {
-          var chars = src.value.length;
-          if (chars > limit) {
-            src.value = src.value.substr(0, limit);
-            chars = limit;
-          }
-          elem.html(limit - chars);
-        }
-
-        setCount($(this)[0], elem);
-      }
-    });
-  })(jQuery);
-  var elem = $("#chars");
-  $("#desc").limiter(500, elem);
-</script>
-<script type="text/javascript">
-  $(window).load(function () {
-    $("#files").change(function () {
-      $('#PicloaderImg').show();
-      $("#ImagePic").remove();
-      if (imageValidation()) {
-        $('#myModalForImageCrop').modal('show');
-        if (typeof jcrop_api_profile != 'undefined') {
-          jcrop_api_profile.destroy();
-          jcrop_api_profile = null;
-        }
-        var errorsHtml = '';
-        $("#pers_info_err").html(errorsHtml);
-        var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
-        var form_data = new FormData()
-        form_data.append("files", file_data);
-        var token = $('input[name=_token]').val();
-
-        $.ajax({
-          url: '/crop/profile',
-          type: 'POST',
-          data: form_data,
-          headers: {'X-CSRF-TOKEN': token},
-          cache: false,
-          contentType: false,
-          processData: false,
-          success: function (data) {
-            if (data == 'failure') {
-              $(".close").click();
-              errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload Service image</p>';
-              $("#pers_info_err").html(errorsHtml);
-            } else {
-              cropProfile(data);
-            }
-          },
-          error: function (data) {
-            if (data.status === 401) {//redirect if not authenticated user
-              $(location).prop('pathname', 'auth/login');
-              var errors = data.responseJSON.msg;
-              $(".close").click();
-              errorsHtml = '<div class="alert alert-danger">' + errors + '</div>';
-              $('#pers_info_err').html(errorsHtml);
-            }
-
-            if (data.status === 422) {
-              //process validation errors here.
-              var errors = data.responseJSON;
-              errorsHtml = '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a><ul>';
-              $.each(errors, function (key, value) {
-                errorsHtml += '<li>' + value[0] + '</li>';
-              });
-              errorsHtml += '</ul></div>';
-              $(".close").click();
-              $('#pers_info_err').html(errorsHtml);
-            } else {
-
-            }
-          }
-        });
-      }
-    });
-    function getImageSize(url, callback) {
-      $('#ImagePic').attr('src', url).load(function () {
-        callback(this.width, this.height);
-      });
-    }
-
-    function cropProfile(imgSrc) {
-      $('#imageCropProfile').append('<img id="ImagePic" src="' + imgSrc + '" style="display: none"/>');
-      getImageSize($("ImagePic").attr('src'), function (width, height) {
-        $('#ImagePic').Jcrop({
-          setSelect: [0, 0, 600, 300],
-          aspectRatio: 600 / 300,
-          allowResize: false,
-          allowSelect: true,
-          boxWidth: 400,
-          boxHeight: 200,
-          onChange: SetCoordinatesProfile,
-          onSelect: SetCoordinatesProfile,
-          trueSize: [width, height]
-        }, function () {
-          var bounds = this.getBounds();
-          boundx = bounds[0];
-          boundy = bounds[1];
-          jcrop_api_profile = this;
-        });
-        $('#PicloaderImg').hide();
-      });
-    }
-
-    function SetCoordinatesProfile(c) {
-      $('#PicimgX1').val(c.x);
-      $('#PicimgY1').val(c.y);
-      $('#PicimgWidth').val(c.w);
-      $('#PicimgHeight').val(c.h);
-      $('#btnCrop').show();
-      $('.jcrop-keymgr').hide();
-    }
-
-    $('#btnCrop').click(function (e) {
-      var x1 = $('#PicimgX1').val();
-      var y1 = $('#PicimgY1').val();
-      var width = $('#PicimgWidth').val();
-      var height = $('#PicimgHeight').val();
-      var errorsHtml = '';
-      $("#img_info_err").html(errorsHtml);
-      $("#pers_info_err").html(errorsHtml);
-      var PicimgWidth = $("#PicimgWidth").val();
-      if (PicimgWidth) {
-        if (parseInt(PicimgWidth) == 0) {
-          errorsHtml = '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a> Please crop service image <div>';
-          $('#img_info_err').html(errorsHtml);
-          return false;
-        }
-      }
-      var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
-      var form_data = new FormData()
-      form_data.append("files", file_data);
-      form_data.append("imgX1", $("#PicimgX1").val());
-      form_data.append("imgY1", $("#PicimgY1").val());
-      form_data.append("imgWidth", $("#PicimgWidth").val());
-      form_data.append("imgHeight", $("#PicimgHeight").val());
-      var token = $('input[name=_token]').val();
-
-      $.ajax({
-        url: '/upload/profile/banner',
-        type: 'POST',
-        data: form_data,
-        headers: {'X-CSRF-TOKEN': token},
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (data) {
-          if (data == 'failure') {
-            errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload jpg, jpeg, png, gif image only</p>';
-            $(".close").click();
-            $("#pers_info_err").html(errorsHtml);
-          } else {
-            $(".close").click();
-            $('#venImage').attr("src", '');
-            $('#venImage').attr("src", data);
-            errorsHtml = '<p class="alert alert-success"><a href="#" class="close" data-dismiss="alert">&times;</a>Profile image uploaded</p>';
-            $("#pers_info_err").html(errorsHtml);
-            setTimeout(function () {   //calls click event after a certain time
-              $(".close").click();
-            }, 500);
-          }
-        },
-        error: function (data) {
-          if (data.status === 401) {//redirect if not authenticated user
-            $(location).prop('pathname', 'auth/login');
-            var errors = data.responseJSON.msg;
-            errorsHtml = '<div class="alert alert-danger">' + errors + '</div>';
-            $('#pers_info_err').html(errorsHtml);
-          }
-        }
-      });
-      $(".close").click();
-    });
-
-    $('#btnUpload').click(function () {
-      $("#ImagePic").remove();
-      $(".close").click();
-    });
-
-    function imageValidation() {
-      var errorsHtml = '';
-      $("#pers_info_err").html(errorsHtml);
-      var file_data = $("#files").prop("files")[0];   // Getting the properties of file from file field
-      if (file_data) {
-        if (file_data.size > 1024 * 1000) {
-          errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload image less 1024 kilobytes</p>';
-          $("#pers_info_err").html(errorsHtml);
-          return false;
-        }
-        var ext = $("#files").val().toLowerCase().match(/\.(.+)$/)[1];
-        if (ext) {
-          switch (ext) {
-            case 'jpg':
-            case 'jpeg':
-            case 'png':
-            case 'gif':
-              return true;
-            default:
-              errorsHtml = '<p class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>Please upload jpg, jpeg, png, gif image only</p>';
-              $("#pers_info_err").html(errorsHtml);
-              return false;
-          }
-        }
-      }
-    }
-
-    $('#mobile').keyup(function () {
-      var data = $(this).val().trim();
-      var regx = /([ -\.])*(\(0\))?(\(?[\d]{10}\)?|(\(?[\d]{4}\)?([ -\.])*\(?[\d]{3}\)?([ -\.])*\(?[\d]{3}\)?)|\(?[\d]{3}\)?([ -\.])*\(?[\d]{3}\)?([ -\.])*\(?[\d]{4}\)?)$/;
-
-      if (data.match(regx)) {
-        $('#mobile').removeClass("input-bg-cross-img");
-        $('#mobile').addClass("input-bg-tick-img");
-      }
-      else {
-        $('#mobile').removeClass("input-bg-tick-img");
-        $('#mobile').addClass("input-bg-cross-img");
-      }
-    });
-
-  });
-</script>&ndash;&gt;-->
-
-
-
