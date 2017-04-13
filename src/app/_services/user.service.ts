@@ -72,20 +72,40 @@ console.log('USER :' + JSON.stringify(user));
     const options = new RequestOptions({headers: headers});
     console.log('options :', JSON.stringify(options));
     console.log('USER :' + JSON.stringify(user));
-    return this.http.put('http://daabglobal.com/api/user', {
-      'user': {
+    return this.http.put('http://daabglobal.com/api/business', {
+      'business': {
         name : user.name,
         description : user.description,
         website : user.website,
         category_id : user.category_id,
-        street1 : user.street1,
-        street2 : user.street2,
+        street : user.street,
         zip : user.zip,
         city: user.city,
         state: user.state
       }
     }, options).map((response: Response) => response.json());
   }
+  // payment details
+
+
+  update0 (user: User) {
+    console.log(user);
+    const headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({headers: headers});
+    console.log('options :', JSON.stringify(options));
+    console.log('USER :' + JSON.stringify(user));
+    return this.http.put('http://daabglobal.com/api/payment', {
+      'user': {
+        email: user.email,
+        password: user.password,
+        password_confirmation: user.password_confirmation,
+        user_type: 'vendor'
+      }
+    }, options).map((response: Response) => response.json());
+  }
+
 
   // change password
 
@@ -97,7 +117,7 @@ console.log('USER :' + JSON.stringify(user));
     const options = new RequestOptions({headers: headers});
     console.log('options :', JSON.stringify(options));
     console.log('USER :' + JSON.stringify(user));
-    return this.http.put('http://daabglobal.com/api/user/change_password', {
+    return this.http.put('http://daabglobal.com/api/change_password', {
       'user': {
         email: user.email,
         password: user.password,

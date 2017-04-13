@@ -10,8 +10,7 @@
   description: string;
   website: string;
   category_id: string;
-  street1: any;
-  street2: any;
+  street: any;
   zip: number;
   city: string;
   state: string;

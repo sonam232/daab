@@ -3,12 +3,12 @@
     <section class="col-md-12">
       <div class="vertcal_outer">
         <div class="vertcal_inner_block">
-          <ul class="text-center info_num">
+          <!--<ul class="text-center info_num">
             <li class="num_select"><a>1</a></li>
             <li><a>2</a></li>
             <li><a>3</a>
             </li>
-          </ul>
+          </ul>-->
           <h4 class="text-center info_num_msg">Please complete your profile and make payment, else your business will be
             not listed on app</h4>
           <div class="signin_bg_comman text-center">
@@ -16,14 +16,14 @@
 <!--
             <form class="vendor_personal_info" ngControl="power" #power="ngForm"  name="form" (ngSubmit)="f.form.valid && update()" #f="ngForm" novalidate>
 -->
-            <form name="form" no validate >
+            <form name="form" #f="ngForm" no validate >
               <div id="image">
-                <p class="pic_upload text-center">
+                <!--<p class="pic_upload text-center">
                                     <span>
                                          <img src="./personnel_profile_files/no-user.png" alt="upload your picture"
                                               id="venImage" width="100" height="100"
                                               onclick="document.getElementById(&#39;files&#39;).click(); return false">
-                                        </span></p>
+                                        </span></p>-->
                 <div class="clearfix"></div>
                 <div class="fileUpload btn btn-default">
                   <span>Upload</span>
@@ -48,7 +48,7 @@
                 <input type="text" class="form-control" id="mobile" name="user[mobile]"  [(ngModel)]="model.mobile" value="" #mobile="ngModel" required >
               </div>
               <input type="hidden" >
-              <button type="submit"  (click)="update()" [hidden]="power.valid " [disabled]="f.invalid" class="btn btn-primary btn-lg btn-block btn_primary" id="persSubmit"
+              <button type="button"  (click)="update()" [hidden]="power.valid " [disabled]="f.invalid" class="btn btn-primary btn-lg btn-block btn_primary" id="persSubmit"
                       [routerLink]="['/business']">
                 NEXT
               </button>
@@ -74,7 +74,7 @@
       </div>
       <div id="img_info_err"></div>
       <div class="modal-body text-center" style="width: 405px; height: 200px;" id="imageCropProfile">
-        <img src="./personnel_profile_files/ajax-loader.gif" id="PicloaderImg">
+       <!-- <img src="./personnel_profile_files/ajax-loader.gif" id="PicloaderImg">-->
       </div>
       <div class="modal-footer">
         <input type="button" id="btnCrop" class="btn btn-success" value="Apply" style="display: none;">

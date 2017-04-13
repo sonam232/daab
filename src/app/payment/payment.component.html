@@ -1,30 +1,33 @@
-<div class="container">
+<!--<div class="container">
   <div class="row">
     <section class="col-md-12">
-      <!-- <div class="vertcal_outer"> vertcal_outer class div start here -->
+      &lt;!&ndash; <div class="vertcal_outer"> vertcal_outer class div start here &ndash;&gt;
       <div class="vertcal_inner_block">
-        <ul class="text-center info_num">
+        &lt;!&ndash;<ul class="text-center info_num">
           <li>1</li>
           <li>2</li>
           <li class="num_select">3
           </li>
-        </ul>
-        <h4 class="text-center info_num_msg">Please complete your profile and make payment, else your business will be not listed on app</h4>
+        </ul>&ndash;&gt;
+      &lt;!&ndash;  <h4 class="text-center info_num_msg">Please complete your profile and make payment, else your business will be not listed on app</h4>
         <div class="payment_form">
           <h2 class="form_title text-center">Payment</h2>
           <div class="clearfix" id="successMsg"></div>
           <div class="row service_edit_table">
             <span class="payment-errors"></span>
             <div class="col-md-12 ">
+&lt;!&ndash;
               <form  id="payment-form" ngControl="power" #power="ngForm"  name="form" (ngSubmit)="f.form.valid && update()" #f="ngForm" novalidate><input name="_token" type="hidden" value="BgSCDrRMzW5v2XaoVFptlC7irVvPekaUpFVxuEtA">
-                <div id="card-errors"></div>
+&ndash;&gt;&ndash;&gt;-->
+              <form name="form" #f="ngForm" novalidate>
+              <div id="card-errors"></div>
                 <label for="card-element">Credit Card</label>
 
-                <div class="form-group">Payment for  </div>
+                <div class="form-group" >Payment for  </div>
 
                 <div id="card-element" class="StripeElement StripeElement--empty"><div class="__PrivateStripeElement" style="margin: 0px; padding: 0px; border: none; display: block; background: transparent; position: relative; opacity: 1;"><iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeFrame2" src="./payment_files/elements-inner-0af99cb731ac730ea7bcd84ded80feaa.html" style="border: none; margin: 0px; padding: 0px; width: 1px; min-width: 100%; overflow: hidden; display: block; height: 24px;"></iframe><input class="__PrivateStripeElement-input" aria-hidden="true" style="height: 1px; position: absolute; top: 0px; left: 0px; border: none; padding: 0px; margin: 0px; display: block; width: 100%; opacity: 0; background: transparent; pointer-events: none;"></div></div>
 
-                <!-- <div class="form-group "><input id="card_number" class="form-control" placeholder="Card Number" name="card_number" type="text" value=""></div>
+                 <div class="form-group "><input id="card_number" class="form-control" placeholder="Card Number" name="card_number" type="text" value=""></div>
 
                 <div class="row">
 
@@ -34,16 +37,17 @@
                     <div class="form-group col-xs-4">
                         <input id="cvc" class="form-control" placeholder="CVC" name="cvc" type="password" value="">
                     </div>
-                </div> -->
+                </div>
 
                 <input name="amount" type="hidden" value="2100">
-                <button class="btn btn-lg btn-block" [disabled]="f.invalid" style="background-color: rgba(92, 37, 141, 0.5); border-color: background-color: rgba(255, 255, 255, 0); color: white;"[routerLink]="['/change-password']" >Pay $21</button>
+                <button type="button" (click)="update0()" class="btn btn-lg btn-block" [disabled]="f.invalid" style="background-color: rgba(92, 37, 141, 0.5); border-color: background-color: rgba(255, 255, 255, 0); color: white;"[routerLink]="['/change-password']" >Pay $21</button>
               </form>
-            </div>
+           <!-- </div>
           </div>
-        </div>
+     <!--   </div>&ndash;&gt;
       </div>
-      <!-- </div> vertcal_outer class div end here -->
+      &lt;!&ndash; </div> vertcal_outer class div end here &ndash;&gt;
     </section>
   </div>
 </div>
+-->

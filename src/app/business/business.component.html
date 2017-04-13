@@ -1,23 +1,22 @@
-
 <div class="container">
   <div class="row">
     <section class="col-md-12">
       <div class="vertcal_outer">
         <div class="vertcal_inner_block">
-          <ul class="text-center info_num">
-            <li><a>1</a></li>
-            <li class="num_select"><a>2</a></li>
-            <li><a>3</a>
-            </li>
-          </ul>
+
           <h4 class="text-center info_num_msg">Please complete your profile and make payment, else your business will be not listed on app</h4>
           <div class="signin_bg_comman text-center">
             <h2 class="form_title text-center">Business Profile</h2>
+<!--
             <form class="vendor_business_info" ngControl="power" #power="ngForm"  name="form" (ngSubmit)="f.form.valid && update2()" #f="ngForm" novalidate>
-              <div id="image">
+-->
+          <form name="form"  #f="ngForm" novalidate>
+            <div id="image">
                 <p class="pic_upload text-center">
                             <span>
+<!--
                                <img src="./business_profile_files/default_banner.png" alt="upload your picture" id="venImage" onclick="document.getElementById(&#39;files&#39;).click(); return false" style="width: 300px; height: 150px;">
+-->
                                </span></p><div class="clearfix"></div>
                 <div class="fileUpload btn btn-default">
                   <span>Upload</span>
@@ -40,7 +39,7 @@
 
               </div>
               <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_website.valid }" >
-                <input type="text" class="form-control indent_zero" placeholder="Website url (Optional)" name="business[website]" value=""  id = "business_website" [(ngModel)]="model.website" value="" #business_website="ngModel" required />
+                <input type="text" class="form-control indent_zero" placeholder="Website url (Optional)" name="business[website]" value=""  id = "website" [(ngModel)]="model.website" value="" #website="ngModel" required />
               </div>
               <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_category.valid }" >
                 <select class="form-control" name="business[category_id]" id="business_category" [(ngModel)]="model.category_id" value="" #business_category="ngModel" required >
@@ -100,20 +99,20 @@
               </div>
 
               <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_street1.valid }" >
-                <input type="text" class="form-control indent_zero" placeholder=" Street1" name="business[street1]" id = "business_street1" [(ngModel)]="model.street1"  value="" #business_street1="ngModel" required />
+                <input type="text" class="form-control indent_zero" placeholder=" Street" name="business[street]" id = "street" [(ngModel)]="model.street"  value=""  street="ngModel" required />
               </div>
-              <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_street2.valid }" >
-                <input type="text" class="form-control indent_zero" placeholder=" Street2" name="business[street2]" id = "business_street2" [(ngModel)]="model.street2" value="" #business_street2="ngModel" required />
-              </div>
+              <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_street2.valid }" >
+                <input type="text" class="form-control indent_zero" placeholder=" Street2" name="business[street2]" id = "street2" [(ngModel)]="model.street2" value="" street2="ngModel" required />
+              </div>-->
               <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !business_zip.valid }" >
                 <div class="row">
                   <div class="col-md-4 mrgn_t_10">
-                    <input type="text" pattern="[0-9]*" maxlength="5" class="form-control indent_zero" id="business_zip" placeholder="ZIP" name="business[zip]" [(ngModel)]="model.business_zip" value="" required/>
+                    <input type="text" pattern="[0-9]*" maxlength="5" class="form-control indent_zero" id="business_zip" placeholder="ZIP" name="business[zip]" [(ngModel)]="model.zip" value="" required/>
                     <p class="zip-error" style="display: none">Invalid zip code.</p></div>
                   <div class="col-md-5 mrgn_t_10">
                     <input type="text" class="form-control indent_zero" id="city" placeholder="CITY" name="business[city]" [(ngModel)] = "model.city" value="" required/></div>
                   <div class="col-md-3 mrgn_t_10 state_text_indent" [ngClass]="{ 'has-error': f.submitted && !business_state.valid }" >
-                    <select class="form-control" name="business[state]" id="state" [(ngModel)] = "model.state" required>
+                    <select class="form-control" name="business[state]" id="state" [(ngModel)] = "model.state" #state="ngModel" required>
                       <option value="">State</option>
                       <option value="AL">AL</option>
                       <option value="AK">AK</option>
@@ -183,10 +182,10 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6 col-sm-6"><a href="http://192.168.1.16/personal-info" class="btn btn-default btn-lg btn-block">Back</a>
+                <div class="col-md-6 col-sm-6"><a class="btn btn-default btn-lg btn-block" [routerLink]="['/personal-info']" > <!--<a href="http://192.168.1.16/personal-info" class="btn btn-default btn-lg btn-block">-->Back</a>
                 </div>
                 <div class="col-md-6 col-sm-6 nxt_btn_mrgin">
-                  <button type="submit" (click)="update2()" class="btn btn-primary btn-lg btn-block btn_primary" [disabled]="f.invalid" [routerLink]="['/payment']" >NEXT
+                  <button type="button" (click)="update2()" class="btn btn-primary btn-lg btn-block btn_primary" [disabled]="f.invalid" [routerLink]="['/payment']" >NEXT
                   </button>
                 </div>
               </div>

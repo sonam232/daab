@@ -18,10 +18,10 @@ export class BusinessComponent implements OnInit {
     private alertService: AlertService) { }
 
   update2() {
-    // console.log(this.model);
+    console.log(this.model);
     this.loading = true;
-    console.log()
-    this.userService.update(this.model)
+    //console.log();
+    this.userService.update2(this.model)
       .subscribe(
         data => {
           this.alertService.success('business info updated', true);
@@ -38,6 +38,9 @@ export class BusinessComponent implements OnInit {
   }
 
 }
+
+
+
 
 
 

@@ -1,5 +1,4 @@
-
-    <div class="container">
+ <div class="container">
         <div class="row">
             <section class="col-md-12">
                 <div class="vertcal_outer">
@@ -11,7 +10,8 @@
                             </h2>
                             <h4 class="text-center form_title three_steps">with three easy steps</h4>
                             <h4 class="text-center form_title three_steps">You can only register as Business User</h4>
-                             <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                           <!--  <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>-->
+                          <form name="form" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <span class="glyphicon glyphicon-envelope"></span>
             <input type="email"  placeholder="Email Address" class="form-control" name="user[email]"  [(ngModel)]="model.email" #email="ngModel" required />
@@ -45,7 +45,7 @@
 
                                     <input class="form-control" id="password_confirmation" placeholder="Confirm Password" name="user[password_confirmation]" type="password">
                                 </div> -->
-                                <button type="submit"  [disabled]="f.invalid" class="btn btn-lg btn-block" style="background-color: rgba(92, 37, 141, 0.5); border-color: background-color: rgba(255, 255, 255, 0); color: white;"  [routerLink]="['/personal-info']">
+                                <button type="button"  (click)="register()" [disabled]="f.invalid" class="btn btn-lg btn-block" style="background-color: rgba(92, 37, 141, 0.5); border-color: background-color: rgba(255, 255, 255, 0); color: white;"  [routerLink]="['/personal-info']">
                                     SIGN UP
                                 </button>
                                 <div class="text-center mrgn_top_ten">
